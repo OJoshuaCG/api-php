@@ -13,7 +13,7 @@ class Database
         $this->host = $_ENV['DB_HOST'];
         $this->db_name = $_ENV['DB_NAME'];
         $this->username = $_ENV['DB_USER'];
-        $this->password = $_ENV['DB_PASS'];
+        $this->password = $_ENV['DB_PASSWORD'];
     }
 
     public function getConnection()

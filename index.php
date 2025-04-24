@@ -1,8 +1,9 @@
 <?php
-// header("Content-Type: application/json");
+header("Content-Type: application/json");
 require_once __DIR__ . '/vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
+define('DIR', __DIR__);
 
 require_once __DIR__ . '/config/database.php';
 require_once __DIR__ . '/utils/Response.php';

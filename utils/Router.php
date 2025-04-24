@@ -30,7 +30,7 @@ class Router {
         foreach (self::$routes as $route) {
             if ($route['method'] === $requestMethod && self::matchPath($route['path'], $uri)) {
                 list($controllerName, $methodName) = explode('@', $route['controllerMethod']);
-                require_once './controllers/' . $controllerName . '.php';
+                require_once DIR . '/controllers/' . $controllerName . '.php';
                 $controller = new $controllerName();
                 $params = self::getParams($route['path'], $uri);
                 call_user_func_array([$controller, $methodName], $params);
@@ -43,6 +43,7 @@ class Router {
     private static function matchPath($routePath, $uri) {
         $routePath = explode('/', $routePath);
         $uri = explode('/', $uri);
+        array_splice($uri, 1, 1);
         if (count($routePath) !== count($uri)) {
             return false;
         }
